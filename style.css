@@ -1,0 +1,330 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --nav--height: 3.5rem;
+
+    --color--description--click: #09d;
+    --color-catClicked: rgba(128, 128, 128, 0.432);
+    --prod__card--width: 320px;
+    --prod__card--height: 360px;
+    --fondo-body: rgb(4, 4, 68);
+    --fondo-card: rgb(13, 30, 87);
+    --fondo-card-mix: rgba(10, 80, 120);
+    --color-descripcion: rgb(121, 121, 121);
+    --color-descripcion-fondo: rgb(121, 121, 121, 0.2);
+    --color-btn-buy: rgb(28, 51, 178);
+    --color-btn-buy-active: rgb(72, 88, 180);
+
+}
+
+body {
+    background-color: #1f1d2a;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+}
+
+/* ************ | NAV CSS | ***************  */
+.nav {
+    background-color: #1b1a2b;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 768px;
+    margin: 0 auto;
+    font-size: 1.07rem;
+    text-transform: uppercase;
+}
+
+.nav__utilidades {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    height: var(--nav--height);
+    align-content: center;
+    align-items: center;
+}
+
+.nav__utilidades a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    height: var(--nav--height);
+    line-height: var(--nav--height);
+
+    padding: 0 20px;
+}
+
+
+.nav__logo {
+    height: inherit;
+}
+
+.nav__logo__img {
+    height: 100%;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.nav__icons {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+.nav__icons i {
+    font-size: 1.5rem;
+
+}
+
+
+/* ************ | CARD CSS | ***************  */
+
+.prod__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.prod__card {
+    position: relative;
+    width: var(--prod__card--width);
+    height: var(--prod__card--height);
+    background: var(--fondo-card);
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 220px;
+}
+
+.prod__card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    background: var(--fondo-card-mix);
+    transform: skewY(345deg);
+    transition: 0.5s;
+}
+
+.prod__card .prod__img {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    place-items: center;
+    padding: 1.2rem;
+    z-index: 1;
+    justify-content: center;
+}
+
+.prod__card .prod__img img {
+    max-width: 100%;
+    transition: 0.5s;
+    width: auto;
+    height: 100%;
+    position: relative;
+}
+
+.prod__card:hover .prod__img img {
+    max-width: 60%;
+}
+
+.prod__card .prod__inf {
+    position: relative;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    text-align: center;
+}
+
+.prod__card .prod__inf h4 {
+    font-size: 1.2rem;
+    color: var(--color-descripcion);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.prod__card .prod__price {
+    font-size: 1.6rem;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card__buy .btn_buy {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 0.34em 2.1em;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 400;
+    background-color: var(--color-btn-buy);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.card__buy .btn_buy:hover {
+    background: var(--color-btn-buy-active);
+}
+
+.prod__amount {
+    margin-top: 5rem;
+}
+
+
+
+.prod__amount input {
+    display: inline-block;
+    font-size: 1.5rem;
+    width: 4em;
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+}
+
+.prod__amount {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+    transition: margin 0.4s;
+}
+
+.prod__card:hover .prod__amount {
+    margin-top: 0.5rem;
+}
+
+.prod__amount .amount__btn {
+    background-color: #ccc6;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 3rem;
+    line-height: 25px;
+}
+
+.amount__btn.add {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.prod__cards .card__buy {
+    background-color: #0a5078;
+    text-align: center;
+}
+
+/* *****************************************************/
+.contenedor__carrito {
+    position: fixed;
+    top: var(--nav--height);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc6;
+    z-index: 1;
+
+}
+
+.carrito {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background-color: #1f1d2a;
+    margin-left: auto;
+}
+
+.carrito>.carrito__seccion {
+    height: 50%;
+    text-align: center;
+    padding: 10px;
+}
+
+.carrito__seccion .carrito__title {
+    font-size: 1.7rem;
+    padding: 20px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/**************************************/
+/***********    categorias      ***********/
+/**************************************/
+
+.categorys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    overflow: visible;
+    padding: 0 30px;
+    margin: 2rem 0;
+}
+
+.categorys .category {
+    flex-grow: 1;
+}
+
+.category__title {
+    width: 100%;
+    display: block;
+    margin: 0.3rem 0;
+}
+
+.category__subtitle {
+    display: block;
+}
+
+.category .description {
+    display: block;
+    padding-top: 10px;
+    border-bottom: 6px dotted #ccc6;
+    padding-bottom: 20px;
+}
+
+
+input[name="category"]:checked+.description {
+    color: white;
+    /* background: var(--color-catClicked); */
+    transition: border 0.3s ease-in-out;
+    /* background-color: #ccc4; */
+    border-bottom: 4px solid var(--color--description--click);
+
+}
+
+input[name="category"]:checked+.description .category__title {
+    text-transform: uppercase;
+}
+
+.caja_categorias div .description:hover {
+    cursor: pointer;
+    color: white;
+}
